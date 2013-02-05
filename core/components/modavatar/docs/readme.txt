@@ -1,0 +1,1 @@
+modAvatar allow to update user profile photo via adminpanel (manager)
