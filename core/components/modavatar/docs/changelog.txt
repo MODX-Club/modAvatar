@@ -1,3 +1,7 @@
 modAvatar-1.0.0-beta
 ============================================
 First release
+
+modAvatar-1.0.1-beta
+============================================
+- Remove waste code

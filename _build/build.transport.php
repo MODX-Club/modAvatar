@@ -10,7 +10,7 @@ define('NAMESPACE_NAME', PKG_NAME_LOWER);
 define('PKG_PATH', PKG_NAME_LOWER);
 define('PKG_CATEGORY', PKG_NAME);
 
-$pkg_version = '1.0.0';
+$pkg_version = '1.0.2';
 $pkg_release = 'beta';
 define('PKG_VERSION', $pkg_version); 
 define('PKG_RELEASE', $pkg_release); 
@@ -50,41 +50,7 @@ $builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.P
  */
 /*$modx->getService('lexicon','modLexicon');
 $modx->lexicon->load(PKG_NAME_LOWER.':properties');*/
- 
-/* load action/menu */
-$menu = include $sources['data'].'transport.menu.php';
-$vehicle= $builder->createVehicle($menu,array (
-    xPDOTransport::PRESERVE_KEYS => true,
-    xPDOTransport::UPDATE_OBJECT => true,
-    xPDOTransport::UNIQUE_KEY => 'text',
-    xPDOTransport::RELATED_OBJECTS => true,
-    xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
-        'Action' => array (
-            xPDOTransport::PRESERVE_KEYS => false,
-            xPDOTransport::UPDATE_OBJECT => true,
-            xPDOTransport::UNIQUE_KEY => array ('namespace','controller'),
-        ),
-        'Children' => array (
-            xPDOTransport::PRESERVE_KEYS => true,
-            xPDOTransport::UPDATE_OBJECT => true,
-            xPDOTransport::UNIQUE_KEY => array('parent', 'text'),
-            xPDOTransport::RELATED_OBJECTS => true,
-            xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
-                'Action' => array (
-                    xPDOTransport::PRESERVE_KEYS => false,
-                    xPDOTransport::UPDATE_OBJECT => true,
-                    xPDOTransport::UNIQUE_KEY => array ('namespace','controller'),
-                ),
-            ),
-        )
-    ),
-));
-$modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($menu).' menus.'); flush();
-$builder->putVehicle($vehicle);
-unset($vehicle,$action);
- 
-
-
+   
 
 /* add namespace */
 /*$namespace = $modx->newObject('modNamespace');
