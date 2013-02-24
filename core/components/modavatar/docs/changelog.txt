@@ -1,7 +1,11 @@
-modAvatar-1.0.0-beta
+modAvatar-1.0.2-beta
 ============================================
-First release
+- [#1] Fix JS error - MODX.ux undefined
 
 modAvatar-1.0.1-beta
 ============================================
 - Remove waste code
+
+modAvatar-1.0.0-beta
+============================================
+First release

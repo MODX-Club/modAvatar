@@ -1,3 +1,4 @@
+MODx.ux = MODx.ux || {}
 MODx.ux.modAvatar = function(config){
     config = config || {};
     Ext.applyIf(config,{
