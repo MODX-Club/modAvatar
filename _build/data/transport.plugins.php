@@ -9,7 +9,7 @@ $plugin = $modx->newObject('modPlugin');
 $plugin->set('id', 1);
 $plugin->set('name', 'modavatar');
 $plugin->set('description', '');
-$plugin->set('plugincode', getSnippetContent($sources['source_core'].'/elements/plugins/plugin.php'));
+$plugin->set('plugincode', getSnippetContent($sources['source_core'].'/elements/plugins/modavatar.plugin.php'));
 
 
 /* add plugin events */

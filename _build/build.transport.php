@@ -10,7 +10,7 @@ define('NAMESPACE_NAME', PKG_NAME_LOWER);
 define('PKG_PATH', PKG_NAME_LOWER);
 define('PKG_CATEGORY', PKG_NAME);
 
-$pkg_version = '1.0.2';
+$pkg_version = '1.1.0';
 $pkg_release = 'beta';
 define('PKG_VERSION', $pkg_version); 
 define('PKG_RELEASE', $pkg_release); 
@@ -68,7 +68,7 @@ unset($vehicle,$namespace);*/
 
 
 /* load system settings */
-/*$settings = include_once $sources['data'].'transport.settings.php';
+$settings = include_once $sources['data'].'transport.settings.php';
 $attributes= array(
     xPDOTransport::UNIQUE_KEY => 'key',
     xPDOTransport::PRESERVE_KEYS => true,
@@ -103,7 +103,7 @@ unset($plugins);
 
 
 /* add snippets */
-/*$snippets = include $sources['data'].'transport.snippets.php';
+$snippets = include $sources['data'].'transport.snippets.php';
 if (!is_array($snippets)) {
     $modx->log(modX::LOG_LEVEL_ERROR,'Could not package in snippets.');
 } else {
@@ -113,7 +113,7 @@ if (!is_array($snippets)) {
 unset($snippets);
 
 /* add chunks */
-/*$chunks = include $sources['data'].'transport.chunks.php';
+$chunks = include $sources['data'].'transport.chunks.php';
 if (!is_array($chunks)) {
     $modx->log(modX::LOG_LEVEL_ERROR,'Could not package in chunks.');
 } else {
