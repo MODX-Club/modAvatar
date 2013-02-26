@@ -4,42 +4,17 @@ MODx.ux.modAvatar.widget.UserPanel = function(config){
     Ext.applyIf(config, {
         border: false
         ,title: _('user_photo')
-        //,tbar:[]
-        //,uploadButton:{}
+        ,source: config.source || 1
     });
-    
-    /*Ext.applyIf(config.uploadButton, {
-        text: _('upload')
-    });*/
     
     this.setup(config);
 };
 
 Ext.extend(MODx.ux.modAvatar.widget.UserPanel, Ext.form.FieldSet, {
     
-    browser: null
-    
-    ,setup: function(config){
-        //this.UploadButton = new Ext.ux.UploadDialog.BrowseButton(config.uploadButton);
-        
-        /*Ext.applyIf(config.tbar, [
-            this.UploadButton
-        ]);*/
-        
-        /*if(MODx.perm.file_manager){
-            config.tbar.push( {
-                icon: MODx.config.manager_url+'templates/default/images/restyle/icons/file_manager.png'
-                ,scope: this
-                ,tooltip: {text: _('modx_browser')}
-                ,text: MODx.ux.modAvatar._('modavatar.select_file')
-                ,handler: this.loadFileManager
-                ,hidden: MODx.perm.file_manager && !MODx.browserOpen ? false : true
-            });
-        } */
+    setup: function(config){
         
         this.userPanel = config.panel || {}
-        
-        this.source = config.source || 1;
         
         this.preview = MODx.load({
             xtype: 'container'
@@ -72,6 +47,7 @@ Ext.extend(MODx.ux.modAvatar.widget.UserPanel, Ext.form.FieldSet, {
                 ,listeners: {
                     select: {scope: this, fn: this.onSelect}
                 }
+                ,source: config.source
             }
             ,this.preview
         ];
@@ -86,7 +62,6 @@ Ext.extend(MODx.ux.modAvatar.widget.UserPanel, Ext.form.FieldSet, {
         });
         
         this.on('fileBrowserSelect', this.fileBrowserSelect, this);
-         
     } 
     
     ,onSelect: function(data, noEvent){
@@ -103,34 +78,7 @@ Ext.extend(MODx.ux.modAvatar.widget.UserPanel, Ext.form.FieldSet, {
         this.photoFieild.setValue(data.relativeUrl);
     }
     
-    ,loadFileManager: function(btn,e) { 
-        var refresh = false;
-        if (this.browser === null) {
-            this.browser = MODx.load({
-                xtype: 'modx-browser'
-                ,hideFiles: true
-                ,rootVisible: false
-                ,wctx: MODx.ctx
-                ,source: this.getSource()
-                ,listeners: {
-                    'select': {fn: function(data) {
-                        this.fireEvent('fileBrowserSelect',data);
-                    },scope:this}
-                }
-            });
-        } else {
-            refresh = true;
-        }
-        if (this.browser) {
-            this.browser.setSource(this.getSource());
-            if (refresh) {
-                this.browser.win.tree.refresh();
-            }
-            this.browser.show();
-        }
-    }
-    
     ,getSource: function(){
-        return 1;
+        return this.source;
     }
 });

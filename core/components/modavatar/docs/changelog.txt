@@ -1,3 +1,9 @@
+modAvatar-1.1.0-beta
+============================================
+- [#2] Added MediaSources support
+- Added snippet modAvatar
+- Added chunk modAvatar.output_tpl
+
 modAvatar-1.0.2-beta
 ============================================
 - [#1] Fix JS error - MODX.ux undefined
